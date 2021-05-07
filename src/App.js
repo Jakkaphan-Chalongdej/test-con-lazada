@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+//import logo from "./logo.svg";
+import "./App.css";
+import Stacks from "./components/Stock";
+import { Container } from "react-bootstrap";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container style={{ marginTop: "5vw" }}>
+        <header>
+          <h1><b>Stock</b></h1>
+        </header>
+        <Stacks />
+      </Container>
     </div>
   );
 }
