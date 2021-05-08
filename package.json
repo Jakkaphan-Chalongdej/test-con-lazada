@@ -11,7 +11,9 @@
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^5.0.0",
+    "consume-lazada-open-platform-api": "^1.0.0",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^4.17.1",
     "multer": "^1.4.2",
     "mysql2": "^2.2.5",
@@ -24,6 +26,7 @@
     "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
     "redux-thunk": "^2.3.0",
+    "request": "^2.88.2",
     "sequelize": "^6.6.2",
     "web-vitals": "^1.0.1"
   },

@@ -156,7 +156,7 @@ function Stock() {
     },
   ];
   const [formData, setform] = React.useState(formDefault);
-  const [errors, setError] = React.useState(null);
+  // const [errors, setError] = React.useState(null);
   const [uploadfile, setFile] = React.useState(null);
   const showform = (index) => {
     dispatch(clearMessage());
@@ -443,7 +443,7 @@ function Stock() {
                             <p>
                               <b>Update ID {row.id}</b>
                             </p>
-                            <p style={{ color: "red" }}>{errors}</p>
+                            {/* <p style={{ color: "red" }}>{errors}</p> */}
                             <div role="alert">
                               <p>
                                 <i style={{ color: messages.color }}>
