@@ -6,17 +6,16 @@ exports.create = (req, res) => {
   if (typeof req.file != "undefined") {
     filename = "/resources/uploads/" + req.file.filename;
     Product.create({
-      skuID: req.body.skuID,
+      SkuId: req.body.SkuId,
       name: req.body.name,
       price: req.body.price,
       quantity: req.body.quantity,
-      img_name: filename,
-      des: req.body.des,
-      discount_price: req.body.discount_price,
+      Images: filename,
+      description: req.body.description,
       category: req.body.category,
     })
-      .then(() => {
-        res.json({ msg: "create successfully!", file: req.file });
+      .then((products) => {
+        res.send(products);
       })
       .catch((err) => {
         res.status(500).send("Error -> " + err);
@@ -24,16 +23,15 @@ exports.create = (req, res) => {
       });
   } else {
     Product.create({
-      skuID: req.body.skuID,
+      SkuId: req.body.SkuId,
       name: req.body.name,
       price: req.body.price,
       quantity: req.body.quantity,
-      des: req.body.des,
-      discount_price: req.body.discount_price,
+      description: req.body.description,
       category: req.body.category,
     })
-      .then(() => {
-        res.json({ msg: "create successfully!" });
+      .then((products) => {
+        res.send(products);
       })
       .catch((err) => {
         res.status(500).send("Error -> " + err);
@@ -61,26 +59,25 @@ exports.findById = (req, res) => {
 
 // Update products
 exports.update = (req, res) => {
- 
   const id = req.params.productId;
   if (typeof req.file !== "undefined") {
     let filename = null;
     filename = "/resources/uploads/" + req.file.filename;
     Product.update(
       {
-        skuID: req.body.skuID,
+        SkuId: req.body.SkuId,
         name: req.body.name,
         price: req.body.price,
         quantity: req.body.quantity,
-        img_name: filename,
-        des: req.body.des,
-        discount_price: req.body.discount_price,
+        Images: filename,
+        description: req.body.description,
         category: req.body.category,
       },
       { where: { id: id } }
     )
-      .then(() => {
-        res.json({ msg: "Update successfully!", file: req.file });
+      .then((products) => {
+        // res.json({ msg: "Update successfully!", file: req.file });
+        res.send(products);
       })
       .catch((err) => {
         res.status(500).send("Error -> " + err);
@@ -89,19 +86,28 @@ exports.update = (req, res) => {
   } else {
     Product.update(
       {
-        skuID: req.body.skuID,
+        SkuId: req.body.SkuId,
         name: req.body.name,
-        img_name: req.body.img_name,
+        Images: req.body.img_name,
         price: req.body.price,
         quantity: req.body.quantity,
-        des: req.body.des,
-        discount_price: req.body.discount_price,
+        description: req.body.description,
         category: req.body.category,
       },
       { where: { id: id } }
     )
-      .then(() => {
-        res.json({ msg: "Update successfully!", file: req.file });
+      .then((products) => {
+        // res.json({ msg: "Update successfully!", file: req.file });
+        res.send({
+          // id: id,
+          SkuId: req.body.SkuId,
+          name: req.body.name,
+          img_name: req.body.img_name,
+          price: req.body.price,
+          quantity: req.body.quantity,
+          description: req.body.description,
+          category: req.body.category,
+        });
       })
       .catch((err) => {
         res.status(500).send("Error -> " + err);

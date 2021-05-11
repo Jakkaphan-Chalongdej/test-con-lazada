@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   const Product = sequelize.define("products", {
-    skuID: {
+    SkuId: {
       type: Sequelize.STRING,
     },
     name: {
@@ -12,10 +12,10 @@ module.exports = (sequelize, Sequelize) => {
     quantity: {
       type: Sequelize.INTEGER,
     },
-    img_name: {
+    Images: {
       type: Sequelize.STRING,
     },
-    des: {
+    description: {
       type: Sequelize.STRING,
     },
     category: {

@@ -17,7 +17,7 @@ db.sequelize.sync(console.log("Connected to the MySQL server."));
 
 server.use(cors());
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.urlencoded({ extended: false }));
 // server.use(express.static(path.resolve(__dirname, "..", "build")));
 server.use(
   express.static(path.join(__dirname, "/public", "/resources/uploads/"))

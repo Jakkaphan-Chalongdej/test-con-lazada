@@ -178,7 +178,7 @@ function Stock() {
   //remove image
   const removefile = (id) => {
     const form = new FormData();
-    form.append("img_name", null);
+    form.append("Images", null);
     dispatch(UpdataProducts(id, form));
   };
   //Reset form
@@ -196,13 +196,13 @@ function Stock() {
       form.append("uploadfile", uploadfile);
     }
     if (formData.skuID !== undefined) {
-      form.append("skuID", formData.skuID);
+      form.append("SkuId", formData.skuID);
     }
     if (formData.name !== undefined) {
       form.append("name", formData.name);
     }
     if (formData.des !== undefined) {
-      form.append("des", formData.des);
+      form.append("description", formData.des);
     }
     if (formData.quantity !== undefined) {
       form.append("quantity", formData.quantity);
@@ -225,17 +225,17 @@ function Stock() {
     if (uploadfile !== undefined) {
       form.append("uploadfile", uploadfile);
     }
-    if (formData.img_name !== undefined) {
-      form.append("img_name", formData.img_name);
-    }
+    // if (formData.img_name !== undefined) {
+    //   form.append("Images", formData.img_name);
+    // }
     if (formData.skuID !== undefined) {
-      form.append("skuID", formData.skuID);
+      form.append("SkuId", formData.skuID);
     }
     if (formData.name !== undefined) {
       form.append("name", formData.name);
     }
     if (formData.des !== undefined) {
-      form.append("des", formData.des);
+      form.append("description", formData.des);
     }
     if (formData.quantity !== undefined) {
       form.append("quantity", formData.quantity);
@@ -317,7 +317,7 @@ function Stock() {
                     <input
                       type="text"
                       name="skuID"
-                      value={formData.skuID}
+                      value={formData.SkuId}
                       onChange={handleChange}
                       placeholder={"skuID"}
                     ></input>
@@ -386,8 +386,8 @@ function Stock() {
                     </div>
                     <Button
                       className="con-button-update"
-                      onClick={() => {
-                        handleAddProduct();
+                      onClick={(e) => {
+                        handleAddProduct(e);
                         handleReset();
                       }}
                     >
@@ -404,10 +404,10 @@ function Stock() {
                       <>
                         <TableRow key={i}>
                           <TableCell>{row.id}</TableCell>
-                          <TableCell>{row.skuID}</TableCell>
+                          <TableCell>{row.SkuId}</TableCell>
                           <TableCell>
                             <img
-                              src={row.img_name}
+                              src={row.Images}
                               alt={row.name}
                               width={120}
                               height={80}
@@ -417,7 +417,7 @@ function Stock() {
                           <TableCell>{row.quantity}</TableCell>
                           <TableCell>{row.price}</TableCell>
                           <TableCell>{row.category}</TableCell>
-                          <TableCell>{row.des}</TableCell>
+                          <TableCell>{row.description}</TableCell>
                           <TableCell>
                             <div className="con-button">
                               <Button
